@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Academic homepage of Gerard Castro López, Courant Institute, New York University.">
+<title>Gerard Castro López</title>
+<style>
+
+:root {
+  color-scheme: light;
+  --ink: #202124; --muted: #555b63; --link: #24558a; --rule: #e1e4e8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 16px; background: #fff; color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.55; }
+main { max-width: 900px; margin: 0 auto; padding: 48px 34px 48px; }
+h1, h2, p { margin: 0; }
+h1 { font-size: clamp(32px, 5.5vw, 43px); line-height: 1.16; font-weight: 600; letter-spacing: -.043em; margin-bottom: 11px; }
+h2 { font-size: 23px; line-height: 1.35; font-weight: 600; letter-spacing: -.028em; margin-bottom: 16px; }
+a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+.intro { display: grid; grid-template-columns: minmax(0,1fr) 162px; gap: 34px; align-items: start; padding-bottom: 24px; }
+.identity { padding-top: 10px; }
+.affiliation { color: var(--muted); font-size: 17px; margin-bottom: 10px; }
+.cv-link { font-size: 15px; display: inline-block; padding: 3px 0; }
+.portrait { width: 100%; height: auto; display: block; border-radius: 2px; }
+section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
+.papers, .entries { list-style: none; margin: 0; padding: 0; }
+.papers li { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 9px; align-items: baseline; }
+.paper-number { font-size: 14px; font-variant-numeric: tabular-nums; color: var(--muted); }
+.papers li+li { margin-top: 18px; }
+.paper-title { font-size: 17px; font-weight: 420; line-height: 1.45; }
+.paper-meta { font-size: 15px; color: var(--muted); margin-top: 2px; }
+.venue { font-size: 15px; margin-top: 2px; }
+.paper-links { font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 2px; }
+.paper-links a { display: inline-block; padding: 3px 0; }
+.entries li { display: grid; grid-template-columns: 66px minmax(0,1fr); gap: 12px; align-items: baseline; }
+.entries li+li { margin-top: 10px; }
+.year { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.detail { color: var(--muted); font-size: 14px; }
+.award-name { font-weight: 500; }
+.talk-host { font-weight: 400; }
+.talks .year, .talks .detail { color: var(--ink); }
+.award-detail { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: 1px; }
+.award-detail a { white-space: nowrap; }
+.talks li+li { margin-top: 10px; }
+#v-states { scroll-margin-top: 20px; }
+@media(max-width:570px) {
+  main { padding: 29px 21px 28px; }
+  .intro { grid-template-columns: minmax(0,1fr) 104px; gap: 15px; padding-bottom: 21px; }
+  .identity { padding-top: 0; }
+  h1 { font-size: clamp(26px, 7vw, 34px); margin-bottom: 9px; }
+  .affiliation { font-size: 15px; line-height: 1.45; margin-bottom: 7px; }
+  h2 { font-size: 21px; margin-bottom: 15px; }
+  section { padding: 20px 0 22px; }
+  .paper-title { font-size: 17px; }
+  .papers li { grid-template-columns: 22px minmax(0,1fr); gap: 6px; }
+  .papers li+li { margin-top: 17px; }
+  .paper-links a, .cv-link { min-height: 32px; padding: 5px 0; }
+  .entries li { grid-template-columns: 42px minmax(0,1fr); gap: 10px; }
+  .talks li { grid-template-columns: 65px minmax(0,1fr); }
+  .talks .year { font-size: 13px; line-height: 1.4; }
+  .award-detail { margin-top: 2px; }
+}
+@media(max-width:350px) {
+  main { padding-inline: 17px; }
+  .intro { grid-template-columns: minmax(0,1fr) 86px; gap: 12px; }
+  h1 { font-size: 24px; }
+  .talks li { grid-template-columns: 60px minmax(0,1fr); gap: 8px; }
+}
+/* Reserve enough room for the fellowship's full funding period. */
+#honors .entries li { grid-template-columns: 84px minmax(0,1fr); }
+@media(max-width:570px) {
+  #honors .entries li { grid-template-columns: 78px minmax(0,1fr); gap: 10px; }
+  #honors .year { font-size: 13px; }
+}
+@media(max-width:350px) {
+  #honors .entries li { grid-template-columns: 73px minmax(0,1fr); gap: 8px; }
+  #honors .year { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<main>
+<header class="intro">
+<div class="identity"><h1>Gerard Castro López</h1><p class="affiliation">Courant Institute, New York University</p><a class="cv-link" href="cv.pdf">CV</a></div>
+<img class="portrait" src="portrait.jpg" alt="Portrait of Gerard Castro López" width="800" height="971">
+</header>
+<section id="publications" aria-labelledby="publications-title">
+<h2 id="publications-title">Papers</h2>
+<ol class="papers" reversed start="2">
+<li value="2"><span class="paper-number" aria-hidden="true">[2]</span><div><div class="paper-title">Self-similar solutions for capillary water waves</div><p class="paper-meta">With A. Carballeira, E. García-Juárez, J. Gómez-Serrano and M. Pasquariello</p><p class="venue"><em>Preprint.</em></p><!-- Add arXiv and PDF links once the preprint is available. --></div></li>
+<li id="v-states" value="1"><span class="paper-number" aria-hidden="true">[1]</span><div><div class="paper-title">Existence of analytic non-convex V-states</div><p class="paper-meta">With J. Gómez-Serrano</p><p class="venue"><em>Communications in Mathematical Physics</em> 406 (2025), 217.</p><div class="paper-links"><a href="https://arxiv.org/abs/2411.12958">arXiv</a><a href="https://arxiv.org/pdf/2411.12958">PDF</a><a href="https://doi.org/10.1007/s00220-025-05382-7">Journal</a></div></div></li>
+</ol></section>
+<section id="honors" aria-labelledby="honors-title"><h2 id="honors-title">Selected honors and awards</h2>
+<ul class="entries">
+<li><span class="year">2026</span><div><span class="award-name">Willi Studer Prize</span> — ETH Zurich<span class="award-detail">Highest graduating grade, Mathematics MSc (6.0/6).</span></div></li>
+<li><span class="year">2025</span><div><span class="award-name">Arquímedes Prize (First Global Prize)</span> — Spanish Ministry of Science<span class="award-detail">Best bachelor’s or master’s thesis across all disciplines in Spain. <a href="https://arxiv.org/abs/2411.12958" target="_blank" rel="noopener noreferrer" aria-label="Related paper: Existence of analytic non-convex V-states (arXiv, opens in a new tab)">Related paper</a></span></div></li>
+<li><span class="year">2025</span><div><span class="award-name">Emmy Noether Prize</span> — Catalan Society of Mathematics<span class="award-detail">Best mathematics bachelor’s thesis in Catalonia. <a href="https://arxiv.org/abs/2411.12958" target="_blank" rel="noopener noreferrer" aria-label="Related paper: Existence of analytic non-convex V-states (arXiv, opens in a new tab)">Related paper</a></span></div></li>
+<li><span class="year">2025–2027</span><div><span class="award-name">“la Caixa” Fellowship</span><span class="award-detail">PhD funding.</span></div></li>
+<li><span class="year">2024</span><div><span class="award-name">Excellence Scholarship and Opportunity Programme (ESOP)</span> — ETH Zurich<span class="award-detail">Full scholarship for master’s studies.</span></div></li>
+</ul></section>
+<section id="talks" aria-labelledby="talks-title"><h2 id="talks-title">Selected talks</h2>
+<ul class="entries talks">
+<li><time class="year" datetime="2026-09">Sep 2026</time><div><span class="talk-host">NYU Courant</span><span class="detail"> — Student Analysis Seminar</span></div></li>
+<li><time class="year" datetime="2026-08">Aug 2026</time><div><span class="talk-host">BIRS-CMO Workshop</span><span class="detail"> — Stable and unstable dynamics in PDEs and Hamiltonian systems</span></div></li>
+<li><time class="year" datetime="2026-04">Apr 2026</time><div><span class="talk-host">AMS New England Graduate Student Conference</span></div></li>
+<li><time class="year" datetime="2024-06">Jun 2024</time><div><span class="talk-host">Equadiff Conference 2024</span><span class="detail"> — Karlstad, Sweden</span></div></li>
+<li><time class="year" datetime="2024-04">Apr 2024</time><div><span class="talk-host">Brown University</span><span class="detail"> — PDE Seminar</span></div></li>
+</ul></section>
+</main></body></html>
