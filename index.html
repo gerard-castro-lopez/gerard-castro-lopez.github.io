@@ -22,11 +22,13 @@ h2 { font-size: 23px; line-height: 1.35; font-weight: 600; letter-spacing: -.028
 a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
 a:hover { text-decoration: underline; }
 a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
-.intro { display: grid; grid-template-columns: minmax(0,1fr) 162px; gap: 34px; align-items: start; padding-bottom: 24px; }
-.identity { padding-top: 10px; }
+.intro { display: grid; grid-template-columns: minmax(0,1fr) 162px; column-gap: 34px; row-gap: 0; grid-template-areas: "identity portrait" "contact portrait"; grid-template-rows: auto 1fr; align-items: start; padding-bottom: 24px; }
+.identity { grid-area: identity; padding-top: 10px; }
 .affiliation { color: var(--muted); font-size: 17px; margin-bottom: 10px; }
-.cv-link { font-size: 15px; display: inline-block; padding: 3px 0; }
-.portrait { width: 100%; height: auto; display: block; border-radius: 2px; }
+.contact { grid-area: contact; display: flex; flex-direction: column; align-items: flex-start; gap: 0; min-width: 0; }
+.cv-link, .email-link { font-size: 15px; display: inline-block; padding: 3px 0; }
+.email-link { max-width: 100%; overflow-wrap: anywhere; }
+.portrait { grid-area: portrait; width: 100%; height: auto; display: block; border-radius: 2px; }
 section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
 .papers, .entries { list-style: none; margin: 0; padding: 0; }
 .papers li { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 9px; align-items: baseline; }
@@ -50,7 +52,7 @@ section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
 #v-states { scroll-margin-top: 20px; }
 @media(max-width:570px) {
   main { padding: 29px 21px 28px; }
-  .intro { grid-template-columns: minmax(0,1fr) 104px; gap: 15px; padding-bottom: 21px; }
+  .intro { grid-template-columns: minmax(0,1fr) 104px; column-gap: 15px; row-gap: 6px; grid-template-areas: "identity portrait" "contact contact"; grid-template-rows: auto auto; padding-bottom: 21px; }
   .identity { padding-top: 0; }
   h1 { font-size: clamp(26px, 7vw, 34px); margin-bottom: 9px; }
   .affiliation { font-size: 15px; line-height: 1.45; margin-bottom: 7px; }
@@ -59,7 +61,7 @@ section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
   .paper-title { font-size: 17px; }
   .papers li { grid-template-columns: 22px minmax(0,1fr); gap: 6px; }
   .papers li+li { margin-top: 17px; }
-  .paper-links a, .cv-link { min-height: 32px; padding: 5px 0; }
+  .paper-links a, .cv-link, .email-link { min-height: 32px; padding: 5px 0; }
   .entries li { grid-template-columns: 42px minmax(0,1fr); gap: 10px; }
   .talks li { grid-template-columns: 65px minmax(0,1fr); }
   .talks .year { font-size: 13px; line-height: 1.4; }
@@ -67,7 +69,7 @@ section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
 }
 @media(max-width:350px) {
   main { padding-inline: 17px; }
-  .intro { grid-template-columns: minmax(0,1fr) 86px; gap: 12px; }
+  .intro { grid-template-columns: minmax(0,1fr) 86px; column-gap: 12px; }
   h1 { font-size: 24px; }
   .talks li { grid-template-columns: 60px minmax(0,1fr); gap: 8px; }
 }
@@ -86,7 +88,8 @@ section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
 <body>
 <main>
 <header class="intro">
-<div class="identity"><h1>Gerard Castro López</h1><p class="affiliation">Courant Institute, New York University</p><a class="cv-link" href="cv.pdf">CV</a></div>
+<div class="identity"><h1>Gerard Castro López</h1><p class="affiliation">Courant Institute, New York University</p></div>
+<div class="contact"><a class="email-link" href="mailto:gerard.castro.lopez@cims.nyu.edu">gerard.castro.lopez@cims.nyu.edu</a><a class="cv-link" href="cv.pdf">CV</a></div>
 <img class="portrait" src="portrait.jpg" alt="Portrait of Gerard Castro López" width="800" height="971">
 </header>
 <section id="publications" aria-labelledby="publications-title">
@@ -98,12 +101,12 @@ section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
 <section id="honors" aria-labelledby="honors-title"><h2 id="honors-title">Selected honors and awards</h2>
 <ul class="entries">
 <li><span class="year">2026</span><div><span class="award-name">Willi Studer Prize</span> — ETH Zurich<span class="award-detail">Highest graduating grade, Mathematics MSc (6.0/6).</span></div></li>
-<li><span class="year">2025</span><div><span class="award-name">Arquímedes Prize (First Global Prize)</span> — Spanish Ministry of Science<span class="award-detail">Best bachelor’s or master’s thesis across all disciplines in Spain. <a href="https://arxiv.org/abs/2411.12958" target="_blank" rel="noopener noreferrer" aria-label="Related paper: Existence of analytic non-convex V-states (arXiv, opens in a new tab)">Related paper</a></span></div></li>
+<li><span class="year">2025</span><div><span class="award-name">Arquímedes Prize (First Global Prize)</span> — Spanish Ministry of Science<span class="award-detail">Best bachelor’s or master’s thesis across <strong>all</strong> disciplines in Spain. <a href="https://arxiv.org/abs/2411.12958" target="_blank" rel="noopener noreferrer" aria-label="Related paper: Existence of analytic non-convex V-states (arXiv, opens in a new tab)">Related paper</a></span></div></li>
 <li><span class="year">2025</span><div><span class="award-name">Emmy Noether Prize</span> — Catalan Society of Mathematics<span class="award-detail">Best mathematics bachelor’s thesis in Catalonia. <a href="https://arxiv.org/abs/2411.12958" target="_blank" rel="noopener noreferrer" aria-label="Related paper: Existence of analytic non-convex V-states (arXiv, opens in a new tab)">Related paper</a></span></div></li>
 <li><span class="year">2025–2027</span><div><span class="award-name">“la Caixa” Fellowship</span><span class="award-detail">PhD funding.</span></div></li>
 <li><span class="year">2024</span><div><span class="award-name">Excellence Scholarship and Opportunity Programme (ESOP)</span> — ETH Zurich<span class="award-detail">Full scholarship for master’s studies.</span></div></li>
 </ul></section>
-<section id="talks" aria-labelledby="talks-title"><h2 id="talks-title">Selected talks</h2>
+<section id="talks" aria-labelledby="talks-title"><h2 id="talks-title">Invited talks</h2>
 <ul class="entries talks">
 <li><time class="year" datetime="2026-09">Sep 2026</time><div><span class="talk-host">NYU Courant</span><span class="detail"> — Student Analysis Seminar</span></div></li>
 <li><time class="year" datetime="2026-08">Aug 2026</time><div><span class="talk-host">BIRS-CMO Workshop</span><span class="detail"> — Stable and unstable dynamics in PDEs and Hamiltonian systems</span></div></li>
