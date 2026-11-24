@@ -26,8 +26,9 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
 .identity { grid-area: identity; padding-top: 10px; }
 .affiliation { color: var(--muted); font-size: 17px; margin-bottom: 10px; }
 .contact { grid-area: contact; display: flex; flex-direction: column; align-items: flex-start; gap: 0; min-width: 0; }
-.cv-link, .email-link { font-size: 15px; display: inline-block; padding: 3px 0; }
-.email-link { max-width: 100%; overflow-wrap: anywhere; }
+.profile-links a, .email { font-size: 15px; display: inline-block; padding: 3px 0; }
+.profile-links { display: flex; flex-wrap: wrap; gap: 0 16px; }
+.email { max-width: 100%; overflow-wrap: anywhere; }
 .portrait { grid-area: portrait; width: 100%; height: auto; display: block; border-radius: 2px; }
 section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
 .papers, .entries { list-style: none; margin: 0; padding: 0; }
@@ -36,9 +37,9 @@ section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
 .papers li+li { margin-top: 18px; }
 .paper-title { font-size: 17px; font-weight: 420; line-height: 1.45; }
 .paper-meta { font-size: 15px; color: var(--muted); margin-top: 2px; }
+.paper-meta a, a.award-name { color: inherit; text-decoration: none; }
 .venue { font-size: 15px; margin-top: 2px; }
-.paper-links { font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 2px; }
-.paper-links a { display: inline-block; padding: 3px 0; }
+.paper-title a, .venue a { color: inherit; }
 .entries li { display: grid; grid-template-columns: 66px minmax(0,1fr); gap: 12px; align-items: baseline; }
 .entries li+li { margin-top: 10px; }
 .year { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -61,7 +62,7 @@ section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
   .paper-title { font-size: 17px; }
   .papers li { grid-template-columns: 22px minmax(0,1fr); gap: 6px; }
   .papers li+li { margin-top: 17px; }
-  .paper-links a, .cv-link, .email-link { min-height: 32px; padding: 5px 0; }
+  .profile-links a, .email { min-height: 32px; padding: 5px 0; }
   .entries li { grid-template-columns: 42px minmax(0,1fr); gap: 10px; }
   .talks li { grid-template-columns: 65px minmax(0,1fr); }
   .talks .year { font-size: 13px; line-height: 1.4; }
@@ -91,23 +92,24 @@ section { border-top: 1px solid var(--rule); padding: 23px 0 25px; }
 <body>
 <main>
 <header class="intro">
-<div class="identity"><h1>Gerard Castro López</h1><p class="affiliation">Courant Institute, New York University</p></div>
-<div class="contact"><a class="email-link" href="mailto:gerard.castro.lopez@cims.nyu.edu">gerard.castro.lopez@cims.nyu.edu</a><a class="cv-link" href="cv.pdf">CV</a></div>
+<div class="identity"><h1>Gerard Castro López</h1><p class="affiliation">Courant Institute, New York University<br>PhD Student</p></div>
+<div class="contact"><span class="email">gerard.castro.lopez@cims.nyu.edu</span><div class="profile-links"><a href="CV_GerardCastro.pdf">CV</a><a href="https://scholar.google.com/citations?hl=en&amp;user=Fz6mISkAAAAJ">Google Scholar</a></div></div>
 <img class="portrait" src="portrait.jpg" alt="Portrait of Gerard Castro López" width="800" height="971">
 </header>
 <section id="publications" aria-labelledby="publications-title">
 <h2 id="publications-title">Papers</h2>
 <ol class="papers" reversed start="2">
-<li value="2"><span class="paper-number" aria-hidden="true">[2]</span><div><div class="paper-title">Self-similar solutions for capillary water waves</div><p class="paper-meta">With A. Carballeira, E. García-Juárez, J. Gómez-Serrano and M. Pasquariello</p><p class="venue"><em>Preprint.</em></p><!-- Add arXiv and PDF links once the preprint is available. --></div></li>
-<li id="v-states" value="1"><span class="paper-number" aria-hidden="true">[1]</span><div><div class="paper-title">Existence of analytic non-convex V-states</div><p class="paper-meta">With J. Gómez-Serrano</p><p class="venue"><em>Communications in Mathematical Physics</em> 406 (2025), 217.</p><div class="paper-links"><a href="https://arxiv.org/abs/2411.12958">arXiv</a><a href="https://arxiv.org/pdf/2411.12958">PDF</a><a href="https://doi.org/10.1007/s00220-025-05382-7">Journal</a></div></div></li>
+<li value="2"><span class="paper-number" aria-hidden="true">[2]</span><div><div class="paper-title"><a href="https://arxiv.org/pdf/2611.31192">Self-similar solutions for capillary water waves</a></div><p class="paper-meta">With <a href="https://alvarocarballeira.github.io/">A. Carballeira</a>, <a href="https://egarciajuarez.com/">E. García-Juárez</a>, <a href="https://sites.brown.edu/jgs/">J. Gómez-Serrano</a> and <a href="https://marcuspas.github.io/">M. Pasquariello</a></p><p class="venue"><em><a href="https://arxiv.org/abs/2611.31192">arXiv preprint: 2611.31192</a> (2026).</em></p></div></li>
+<li id="v-states" value="1"><span class="paper-number" aria-hidden="true">[1]</span><div><div class="paper-title"><a href="https://arxiv.org/pdf/2411.12958">Existence of analytic non-convex V-states</a></div><p class="paper-meta">With <a href="https://sites.brown.edu/jgs/">J. Gómez-Serrano</a></p><p class="venue"><em><a href="https://link.springer.com/article/10.1007/s00220-025-05382-7">Communications in Mathematical Physics</a></em> 406 (2025), 217.</p></div></li>
 </ol></section>
 <section id="honors" aria-labelledby="honors-title"><h2 id="honors-title">Selected honors and awards</h2>
 <ul class="entries">
-<li><span class="year">2026</span><div><span class="award-name">Willi Studer Prize</span> — ETH Zurich<span class="award-detail">Highest graduating grade, Mathematics MSc (6.0/6).</span></div></li>
-<li><span class="year">2025</span><div><span class="award-name">Arquímedes Prize (First Global Prize)</span> — Spanish Ministry of Science<span class="award-detail">Best bachelor’s or master’s thesis across <strong>all</strong> disciplines in Spain. <a href="https://arxiv.org/abs/2411.12958" target="_blank" rel="noopener noreferrer" aria-label="Related paper: Existence of analytic non-convex V-states (arXiv, opens in a new tab)">Related paper</a></span></div></li>
-<li><span class="year">2025</span><div><span class="award-name">Emmy Noether Prize</span> — Catalan Society of Mathematics<span class="award-detail">Best mathematics bachelor’s thesis in Catalonia. <a href="https://arxiv.org/abs/2411.12958" target="_blank" rel="noopener noreferrer" aria-label="Related paper: Existence of analytic non-convex V-states (arXiv, opens in a new tab)">Related paper</a></span></div></li>
-<li><span class="year">2025–2027</span><div><span class="award-name">“la Caixa” Fellowship</span><span class="award-detail">PhD funding.</span></div></li>
-<li><span class="year">2024</span><div><span class="award-name">Excellence Scholarship and Opportunity Programme (ESOP)</span> — ETH Zurich<span class="award-detail">Full scholarship for master’s studies.</span></div></li>
+<li><span class="year">2026</span><div><a class="award-name" href="https://ethz.ch/en/the-eth-zurich/education/awards/willi-studer-prize.html">Willi Studer Prize</a> — ETH Zurich<span class="award-detail">Highest graduating grade, Mathematics MSc (6.0/6).</span></div></li>
+<li><span class="year">2025</span><div><a class="award-name" href="https://www.ciencia.gob.es/InfoGeneralPortal/documento/2c339598-64b0-469f-afc4-ae5a28d7fbb1#page=3" hreflang="es" aria-label="Arquímedes Prize (First Global Prize), official resolution (PDF in Spanish)">Arquímedes Prize (First Global Prize)</a> — Spanish Ministry of Science<span class="award-detail">Best bachelor’s or master’s thesis across <strong>all disciplines</strong> in Spain. <a href="https://arxiv.org/abs/2411.12958" aria-label="Awarded paper [1], Existence of analytic non-convex V-states on arXiv">Awarded paper [1]</a></span></div></li>
+<li><span class="year">2025</span><div><a class="award-name" href="https://scm.iec.cat/eng/premis/emmy-noether/" hreflang="en">Emmy Noether Prize</a> — Catalan Society of Mathematics<span class="award-detail">Best mathematics bachelor’s thesis in Catalonia. <a href="https://arxiv.org/abs/2411.12958" aria-label="Awarded paper [1], Existence of analytic non-convex V-states on arXiv">Awarded paper [1]</a></span></div></li>
+<li><span class="year">2025–2027</span><div><a class="award-name" href="https://lacaixafoundation.org/en/postgraduate-fellowships-abroad">“la Caixa” Fellowship</a><span class="award-detail">PhD funding.</span></div></li>
+<li><span class="year">2024</span><div><a class="award-name" href="https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html">Excellence Scholarship and Opportunity Programme (ESOP)</a> — ETH Zurich<span class="award-detail">Full scholarship for master’s studies.</span></div></li>
+<li><span class="year">2024</span><div><a class="award-name" href="https://frdelpino.es/en_gb/scholarships/excellence-scholarships/">Rafael del Pino Excellence Scholarship</a><span class="award-detail">Scholarship for master’s studies.</span></div></li>
 </ul></section>
 <section id="talks" aria-labelledby="talks-title"><h2 id="talks-title">Invited talks</h2>
 <ul class="entries talks">
